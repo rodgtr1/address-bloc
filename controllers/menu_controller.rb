@@ -14,7 +14,8 @@ class MenuController
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - View entry n"
-    puts "6 - Exit"
+    puts "6 - Nuke all entries"
+    puts "7 - Exit"
     puts "Enter your selection: "
 
     #retrieves user input from command line with gets
@@ -43,7 +44,12 @@ class MenuController
         system "clear"
         entry_n_submenu
         main_menu
-       when 6
+      when 6
+        system "clear"
+        @address_book.nuke_all_entries
+        puts "All entries have been removed"
+        main_menu
+      when 7
          puts "Good-bye!"
          exit(0)
        else

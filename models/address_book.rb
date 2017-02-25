@@ -19,6 +19,14 @@ class AddressBook
     entries.insert(index, Entry.new(name, phone_number, email))
   end
 
+  def nuke_all_entries
+    puts "Enter y to confirm"
+    confirm = gets.chomp
+    if confirm == "y"
+      @entries = []
+    end
+  end
+
   def import_from_csv(file_name)
     csv_text = File.read(file_name)
     csv = CSV.parse(csv_text, headers: true, skip_blanks: true)
